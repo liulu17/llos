@@ -8,11 +8,18 @@
     ljmp $BOOTSEG,$_start
 
 _start:
-    movw $0xb800,%ax  
-    movw %ax,%es
-    movb $65,%al
-    xor  %di,%di
-    movb %al,%es:(%di)  
+    mov $BOOTSEG,%ax  
+    mov %ax,%es        
+    mov $0x03,%ah      
+    xor %bh,%bh        
+    int $0x10
+
+    mov     $20,%cx    
+    mov     $0x0007,%bx
+   
+    mov     $msg1,%bp
+    mov     $0x1301,%ax
+    int     $0x10      
 
 loop_forever:          
     jmp loop_forever
