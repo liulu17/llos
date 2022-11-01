@@ -8,18 +8,23 @@
     ljmp $BOOTSEG,$_start
 
 _start:
-    mov $BOOTSEG,%ax  
-    mov %ax,%es        
-    mov $0x03,%ah      
-    xor %bh,%bh        
-    int $0x10
+    // mov $BOOTSEG,%ax  
+    // mov %ax,%es        
+    // mov $0x03,%ah      
+    // xor %bh,%bh        
+    // int $0x10
 
-    mov     $20,%cx    
-    mov     $0x0007,%bx
+    // mov     $20,%cx    
+    // mov     $0x0007,%bx
    
-    mov     $msg1,%bp
-    mov     $0x1301,%ax
-    int     $0x10      
+    // mov     $msg1,%bp
+    // mov     $0x1301,%ax
+    // int     $0x10      
+    mov $0xb800,%ax
+    mov %ax,%di
+    movb $97,(%di)
+    movb $98,2(%di)
+
 
 loop_forever:          
     jmp loop_forever
