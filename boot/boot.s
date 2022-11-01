@@ -24,8 +24,15 @@ _start:
     movw %ax,%es
     // movw %ax,%di
     xorw %di,%di
-    movb $97,%es:(%di)
-    movb $98,%es:2(%di)
+    xor %ecx,%ecx
+    movb $26,%cx
+    xor %eax,%eax
+    movb $65,%al
+    movb $0xc,%ah
+loop:
+    movw %ax,%es:(%di)
+    inc %al
+    add $2,%di
 
 
 loop_forever:          
