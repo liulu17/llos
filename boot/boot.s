@@ -10,7 +10,7 @@
 _start:
     movw $0xb800,%ax  
     movw %ax,%es
-    movb $97,%al
+    movb $65,%al
     xor  %di,%di
     movb %al,%es:(%di)  
 
