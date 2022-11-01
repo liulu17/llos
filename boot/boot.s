@@ -29,10 +29,11 @@ _start:
     xor %eax,%eax
     movb $65,%al
     movb $0xc,%ah
-loop:
+loop1:
     movw %ax,%es:(%di)
     inc %al
     add $2,%di
+    loop loop1
 
 
 loop_forever:          
