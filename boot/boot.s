@@ -19,11 +19,13 @@ _start:
    
     // mov     $msg1,%bp
     // mov     $0x1301,%ax
-    // int     $0x10      
-    mov $0xb800,%ax
-    mov %ax,%di
-    movb $97,(%di)
-    movb $98,2(%di)
+    // int     $0x10  
+    movw $BOOTSEG,%ax
+    movw %ax,%es
+    movw $0xb800,%ax
+    movw %ax,%di
+    movb $97,%es:(%di)
+    movb $98,%es:2(%di)
 
 
 loop_forever:          
