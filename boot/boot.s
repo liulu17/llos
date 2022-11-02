@@ -88,33 +88,13 @@ clear_creen:
     movb $79,%dl
     movb $0x07,%bh
     int $0x10
-// set_line:
-//     int $0x10
-//     inc %ch
-//     inc %dh
-//     add $0x10,%bh
-//     dec %bp
-//     cmpw %bp,0
-//     jae set_line
 
-// read_keyboard:   
-//     movb $0x0,%ah
-//     int $0x16
-
-//     movb $0x06,%ah
-//     movb $1,%al
-//     movb $5,%ch
-//     movb $5,%cl
-//     movb $9,%dh
-//     movb $74,%dl
-//     movb $0x77,%bh
-//     int $0x10
-//     jmp read_keyboard
-    // movw $0x1301,%ax
-    // movw $msg,%bp
-    // movw $22,%cx
-    // movw $0x0007,%bx
-    // int $0x10
+print_str:
+    movw $0x1301,%ax
+    movw $msg,%bp
+    movw $22,%cx
+    movw $0x0007,%bx
+    int $0x10
 
 msg:
     .byte 13,10
