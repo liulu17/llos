@@ -80,18 +80,27 @@ go:
 
     movb $0x6,%ah
     movb $0,%al
-    movb $0,%ch
-    movb $5,%cl
-    movb $23,%dh
-    movb $79,%dl
-    movb $0x17,%bh
-    int $0x10
 
-    movw $0x1301,%ax
-    movw $msg,%bp
-    movw $22,%cx
-    movw $0x0007,%bx
+    movw $4,%cx
+    movb $5,%ch
+    movb $5,%cl
+    movb $5,%dh
+    movb $74,%dl
+    movb $0x17,%bh
+    
+set_line:
     int $0x10
+    inc %ch
+    inc %dh
+    add $0x10,%bh
+    loop set_line
+    
+
+    // movw $0x1301,%ax
+    // movw $msg,%bp
+    // movw $22,%cx
+    // movw $0x0007,%bx
+    // int $0x10
 
 msg:
     .byte 13,10
