@@ -59,6 +59,7 @@
     .equ VIDEOSEG, 0xb800
 .text
 .global _start
+    ljmp $BOOTSEG,$_start
 _start:
     movw $BOOTSEG,%ax
     movw %ax,%ds
