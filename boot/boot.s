@@ -78,13 +78,21 @@ go:
     movw %ax,%es
     movw %ax,%ss
 
-    movw $VIDEOSEG,%ax
-    movw %ax,%es
-    xorw %di,%di
+    // movw $VIDEOSEG,%ax
+    // movw %ax,%es
+    // xorw %di,%di
 
-    movb $0x41,%es:(%di)
-    movb $0xc,%es:1(%di)
-    
-    .=0x1fe
+    // movb $0x41,%es:(%di)
+    // movb $0xc,%es:1(%di)
+    movw $0x1301 %ax
+    movw $msg,%bp
+    movw $22,%cx
+    movw $0x0007,%bx
+    int $0x10
+
+msg:
+    .byte 13,10
+    .ascii "Loading kernel......" 
+.org 0x1fe
 boot_flag:
     .word 0xAA55
