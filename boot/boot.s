@@ -82,8 +82,8 @@ go:
     movb $0,%al
     movb $0,%ch
     movb $5,%cl
-    movb $20,%dh
-    movb $74,%dl
+    movb $23,%dh
+    movb $79,%dl
     movb $0x17,%bh
     int $0x10
 
