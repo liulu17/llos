@@ -81,7 +81,7 @@ go:
     movb $0x6,%ah
     movb $0,%al
     movb $0,%ch
-    movb $5,%cl
+    movb $0,%cl
     movb $20,%dh
     movb $74,%dl
     movb $0x17,%bh
