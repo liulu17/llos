@@ -94,7 +94,7 @@ set_line:
     inc %dh
     add $0x10,%bh
     dec %bp
-    cmpw $bp,0
+    cmpw %bp,0
     jae set_line
     
 
