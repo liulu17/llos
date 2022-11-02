@@ -52,11 +52,11 @@
 //     .word 0xAA55
 
 .code16
-    .equ INITSEG 0x9000
-    .equ SETUPSEG 0x9020
-    .equ SYSSEG 0x1000
-    .equ BOOTSEG 0x7c00
-    .equ VIDEOSEG 0xb800
+    .equ INITSEG,0x9000
+    .equ SETUPSEG, 0x9020
+    .equ SYSSEG, 0x1000
+    .equ BOOTSEG, 0x7c00
+    .equ VIDEOSEG, 0xb800
 .text
 .global _start
 _start:
@@ -66,7 +66,7 @@ _start:
     movw %ax,%es
     movw $256,%cx
     subw %si,%si
-    sub2 %di,%di
+    subw %di,%di
     cld
     rep movsw
     ljmp $INITSEG,$go
