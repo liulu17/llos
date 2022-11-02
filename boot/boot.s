@@ -78,12 +78,14 @@ go:
     movw %ax,%es
     movw %ax,%ss
 
-    // movw $VIDEOSEG,%ax
-    // movw %ax,%es
-    // xorw %di,%di
+    movb $0x6,%ah
+    movb $0,%al
+    movb $5,%ch
+    movb $5,%cl
+    movb $20,%dh
+    movb $74,%dl
+    movb $0x17,%bh
 
-    // movb $0x41,%es:(%di)
-    // movb $0xc,%es:1(%di)
     movw $0x1301,%ax
     movw $msg,%bp
     movw $22,%cx
