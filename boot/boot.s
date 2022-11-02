@@ -83,6 +83,7 @@ go:
     xorw %di,%di
 
     movb $0x41,%es:(%di)
+    movb 0xc,%es:1(%di)
     
     .=0x1fe
 boot_flag:
