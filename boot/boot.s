@@ -81,7 +81,7 @@ go:
     movb $0x6,%ah
     movb $0,%al
 
-    movw $4,%cx
+    movw $4,%bp
     movb $5,%ch
     movb $5,%cl
     movb $5,%dh
@@ -93,7 +93,9 @@ set_line:
     inc %ch
     inc %dh
     add $0x10,%bh
-    loop set_line
+    dec %bp
+    cmpw $bp,0
+    jae set_line
     
 
     // movw $0x1301,%ax
