@@ -78,38 +78,38 @@ go:
     movw %ax,%es
     movw %ax,%ss
 
+clear_creen:
     movb $0x6,%ah
     movb $0,%al
 
-    movw $4,%bp
-    movb $5,%ch
-    movb $5,%cl
-    movb $5,%dh
-    movb $74,%dl
-    movb $0x17,%bh
-    
-set_line:
+    movb $0,%ch
+    movb $0,%cl
+    movb $24,%dh
+    movb $79,%dl
+    movb $0x07,%bh
     int $0x10
-    inc %ch
-    inc %dh
-    add $0x10,%bh
-    dec %bp
-    cmpw %bp,0
-    jae set_line
+// set_line:
+//     int $0x10
+//     inc %ch
+//     inc %dh
+//     add $0x10,%bh
+//     dec %bp
+//     cmpw %bp,0
+//     jae set_line
 
-read_keyboard:   
-    movb $0x0,%ah
-    int $0x16
+// read_keyboard:   
+//     movb $0x0,%ah
+//     int $0x16
 
-    movb $0x06,%ah
-    movb $1,%al
-    movb $5,%ch
-    movb $5,%cl
-    movb $9,%dh
-    movb $74,%dl
-    movb $0x77,%bh
-    int $0x10
-    jmp read_keyboard
+//     movb $0x06,%ah
+//     movb $1,%al
+//     movb $5,%ch
+//     movb $5,%cl
+//     movb $9,%dh
+//     movb $74,%dl
+//     movb $0x77,%bh
+//     int $0x10
+//     jmp read_keyboard
     // movw $0x1301,%ax
     // movw $msg,%bp
     // movw $22,%cx
