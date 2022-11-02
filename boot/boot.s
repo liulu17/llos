@@ -84,7 +84,7 @@ go:
 
     // movb $0x41,%es:(%di)
     // movb $0xc,%es:1(%di)
-    movw $0x1301 %ax
+    movw $0x1301,%ax
     movw $msg,%bp
     movw $22,%cx
     movw $0x0007,%bx
