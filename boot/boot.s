@@ -81,7 +81,7 @@ go:
     movw %ax,%es
     xorw %di,%di
 
-    movw $0x0c65,%es:(%di)
+    movw $0x0c41,%es:(%di)
     
     .=0x1fe
 boot_flag:
