@@ -85,6 +85,7 @@ go:
     movb $20,%dh
     movb $74,%dl
     movb $0x17,%bh
+    int $0x10
 
     movw $0x1301,%ax
     movw $msg,%bp
