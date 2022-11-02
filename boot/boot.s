@@ -96,8 +96,20 @@ set_line:
     dec %bp
     cmpw %bp,0
     jae set_line
-    
 
+read_keyboard:   
+    movb $0x0,%ah
+    int 0x16
+
+    movb $0x06,%ah
+    movb $1,%al
+    movb $5,%ch
+    movb $5,%cl
+    movb $9,%dh
+    movb $74,%dl
+    movb $0x77,%bh
+    int 0x10
+    jmp read_keyboard
     // movw $0x1301,%ax
     // movw $msg,%bp
     // movw $22,%cx
